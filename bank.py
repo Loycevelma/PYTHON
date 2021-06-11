@@ -24,6 +24,13 @@ class Account:
         self.loan=20000
 
     def deposit(self,amount):
+        try:
+            1+amount
+        except  TypeError:
+            return f"The amount must be in figures"    
+         
+        
+
         self.balance+=amount
         transaction={"amount":amount,"balance":self.balance,"time":datetime.now(),"narration":"Deposit"}
         self.transaction.append(transaction)
@@ -41,6 +48,17 @@ class Account:
          return f"You have deposited{amount} and your balance is{self.balance}"  
 
     def withdraw(self,amount):
+        try:
+            1+amount
+        except TypeError:
+            return f"the amount must be in figures"
+            
+            
+            
+             
+
+        
+
 
         if  amount<0:
             return f"The amount is lesser than zero"
@@ -105,10 +123,11 @@ class Account:
             return f"Dear {self.name} your loan has been decreased {self.loan}"
          else:
             diff=amount-self.loan
-            self.laon=0
+            self.loan=0
             self.deposit(diff)
             self.balance+=amount
             now=datetime.now()
+
             transaction={
                "amount":amount,
                "time":now,
@@ -116,7 +135,42 @@ class Account:
                
             } 
             self.statement.append(transaction)
-            return f"Dear {self.name} your loan has been cleared"          
+            return f"Dear {self.name} your loan has been cleared"  
+
+
+
+    def  transfer(self,amount,account):
+        try:
+          1+amount
+        except  TypeError:
+            return f"The amount must be in figures" 
+        fee=amount*0.05
+        if amount+fee>self.balance:
+            return f"You balance is {self.balance} ,you need  {amount+fee}"  
+
+        else:
+            self.balance-=amount+fee 
+            account.deposit   (amount)
+            return f"Transaction successful  you have transfered{amount} and your balance is {self.balance}"      
+        
+
+
+class MobileMoneyAccount(Account):
+    def __init__(self, name, age, ID,service):
+        super().__init__(name,age,ID)
+    
+        self.service=service
+        self.limit=300000
+ 
+    def  buy_airtime (self,amount):
+        try:
+          1+amount
+        except  TypeError:
+            return f"The amount must be in figures"  
+        if self.balance>amount :
+            return f"Hello you have bought airtime amounting to {amount}  and yor balance is {self.balance-amount}" 
+
+        
             
 
 
