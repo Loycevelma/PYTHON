@@ -23,25 +23,18 @@ for k in x:
 print(y)
 
 
-# a=([3,6,8,2,4,1,5,7])
-# smallest=list(a)
-# print(smallest)
 
-# def smallest():
-#     numbers=[3,6,8,2,4,1,5,7]
-#     smallestvalue=smallest(numbers)
-#     print(smallest)
 
 def smallest(i):
     print(min(i))
-smallest([1,3,4,7,45,5,40])
+smallest([3,6,8,2,4,1,5,7])
 
 
 
 def remove_duplicate(x):
     p=set(x)
     print(p)
-remove_duplicate(x = ['a','b','a','e','d','b','c','e','f','g','h'])
+removeduplicate(x = ['a','b','a','e','d','b','c','e','f','g','h'])
 
 
 
