@@ -52,6 +52,28 @@ def  divisible_by_seven():
             print(y)
 divisible_by_seven()
 
+def greet_student():
+    students = [{"age": 19, "name": "Eunice"}, {"age": 21, "name": "Agnes"}, {"age": 18, "name": "Teresa"}, {"age": 22, "name": "Asha"}],
+    for student in students:
+       print(students)
+        
+greet_student()  
+
+class Rectangle:
+    def __init__(self,width,length):
+        self.width=width
+        self.length=length
+    def area(self):
+        area=self.length*self.width
+        print(area) 
+    def perimeter(self):
+        perimeter=2*(self.width+self.length)
+        print(perimeter) 
+rectangle=Rectangle(12,36)
+rectangle.area()
+rectangle.perimeter()
+
+
 
 
 
